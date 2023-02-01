@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/khanhlinhbui/challenge_10/issues"
   },
-  "homepage": "https://github.com/khanhlinhbui/challenge_10#readme"
+  "homepage": "https://github.com/khanhlinhbui/challenge_10#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^29.4.1"
+  }
 }
