@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { getDiffieHellman } = require('crypto')
 function createManager(){
     inquirer
         .prompt([

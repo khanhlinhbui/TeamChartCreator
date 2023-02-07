@@ -2,7 +2,7 @@
   "name": "challenge_10",
   "version": "1.0.0",
   "description": "display web page showing engineering team",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
