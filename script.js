@@ -4,6 +4,8 @@ const Engineer = require('./lib/Engineer');
 const Employee = require('./lib/Employee');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+// Create a list to store input
+const list = [];
 // Generate buildTeam functionß
 function buildTeam(){ 
     console.log('12345')
@@ -40,6 +42,7 @@ function createManager(){
             answer.manager_email,
             answer.manger_officeNumber
         )
+        list.push(managerObject)
         createEmployee();
     })
 }
@@ -118,6 +121,7 @@ function addEngineer(){
                 answer.engineer_email,
                 answer.engineer_github 
             )
+            list.push(engineerObject)
         })
     }
     function addIntern(){
@@ -151,6 +155,7 @@ function addEngineer(){
                     answer.intern_email,
                     answer.intern_school
                 )
+                list.push(internObject)
             })
     }
     
