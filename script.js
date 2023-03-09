@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Engineer = require('challenge_10/script.js');
+const { listenerCount } = require('process');
 function createManager(){
     inquirer
         .prompt([
@@ -34,55 +36,96 @@ function createEmployee(){
         .prompt([
             {
                 type: 'list',
-                message: 'what is your position?',
+                message: 'which position do you want to add?',
                 name: 'employee_position',
                 choices: [
                     'Engineer',
-                    'Intern'
+                    'Intern',
+                    'Stop adding'
                 ]
-            },
-            {
-                type: 'input',
-                message: 'what is the name of the employee?',
-                name: 'employee_name'
-            },
-            {
-                type: 'input',
-                message: ' what is the ID of the employee?',
-                name: 'employee_id'
-            },
-            {
-                type: 'input',
-                message: ' what is the email of the employee?',
-                name: 'employee_email'
             }
         ])
         .then((answer)=>{
-            if(answer.employee_position == 'Engineer'){
-                inquirer
-                    .prompt({
-                        type: 'input',
-                        message: 'what is your Github account?',
-                        name: 'engineer_github'
-                    })
-                    .then((answer2)=>{
-                        console.log(answer2)
-                    })
-                }else{
-                    inquirer
-                        .prompt({
-                            type: 'input',
-                            message: 'what is your current school?',
-                            name: 'intern_school'
-                        })
-                        .then((answer3)=>{
-                            console.log(answer3)
-                        })
+            switch(answer.employee_position){
+                case 'Engineer':
+                    addEngineer()
+                case 'Intern':
+                    addIntern()
+                case 'Stop adding':
+                    buildTeam()
                 }
         })
         .catch((error)=>{
             console.log(error)
         })
-}
-//
+    }
+// adding Engineer inquirer
+function addEngineer(){
+    inquirer 
+        .prompt([
+            {
+                type: 'input',
+                message: 'what is the name of the engineer?',
+                name: 'engineer_name',
+                validate: (answer) => {
+                    if(answer !== ''){
+                        return true;
+                    } 
+                    return 'require at least 1 character';
+                }
+            },
+            {
+                type: 'input',
+                message: 'what is the ID of the engineer?',
+                name: 'employee_id',
+                validate: 
+            },
+            {
+                type: 'input',
+                message: 'what is the email of the engineer?',
+                name: 'engineer_email'
+            },
+            {
+                type: 'input',
+                message: 'what is the github of the engineer?',
+                name:'enginner_github'
+            }
+        ])
+        .then((answer) => {
+            const engineer = new Engineer (
+                answer.engineer_name,
+                answer.engineer_id,
+                answer.engineer_email,
+                answer.engineer_github 
+            )
+        })
+    }
+    function addIntern(){
+        inquirer
+            .prompt([
+                {
+                    type: 'input',
+                    message: 'what is the name of the intern',
+                    name: 'intern_name'
+                },
+                {
+                    type: 'input',
+                    message: 'what is the ID of the intern',
+                    name: 'intern_id'
+                },
+                {
+                    type:'input',
+                    message: 'what is the email of the intern?',
+                    name: 'intern_email'
+                },
+                {
+                    type: 'input',
+                    message: ' what is the school of intern',
+                    name: 'intern_school'
+                }
+            ])
+            .then((answer) => {
+                console.log
+            })
+    }
     
