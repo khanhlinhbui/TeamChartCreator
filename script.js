@@ -1,9 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const engineer = require('./lib/Engineer');
-const employee = require('./lib/Employee');
-const intern = require('./lib/Intern');
-const manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Employee = require('./lib/Employee');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
+// Generate buildTeam functionß
+function buildTeam(){ 
+    console.log('12345')
+}
 // const { listenerCount } = require('process');
 function createManager(){
     inquirer
@@ -30,7 +34,7 @@ function createManager(){
             }
     ])
     .then((answer)=>{
-        const manager = new Manager (
+        const managerObject = new Manager (
             answer.manager_name,
             answer.manager_id,
             answer.manager_email,
@@ -58,8 +62,10 @@ function createEmployee(){
             switch(answer.employee_position){
                 case 'Engineer':
                     addEngineer()
+                    break
                 case 'Intern':
                     addIntern()
+                    break
                 case 'Stop adding':
                     buildTeam()
                 }
@@ -106,7 +112,7 @@ function addEngineer(){
             }
         ])
         .then((answer) => {
-            const engineer = new Engineer (
+            const engineerObject = new Engineer (
                 answer.engineer_name,
                 answer.engineer_id,
                 answer.engineer_email,
@@ -139,8 +145,11 @@ function addEngineer(){
                 }
             ])
             .then((answer) => {
-                const intern = new Intern (
-
+                const internObject = new Intern (
+                    answer.intern_name,
+                    answer.intern_id,
+                    answer.intern_email,
+                    answer.intern_school
                 )
             })
     }
