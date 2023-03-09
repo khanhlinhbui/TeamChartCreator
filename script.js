@@ -1,7 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Engineer = require('challenge_10/script.js');
-const { listenerCount } = require('process');
+const engineer = require('./lib/Engineer');
+const employee = require('./lib/Employee');
+const intern = require('./lib/Intern');
+const manager = require('./lib/Manager');
+// const { listenerCount } = require('process');
 function createManager(){
     inquirer
         .prompt([
@@ -27,6 +30,12 @@ function createManager(){
             }
     ])
     .then((answer)=>{
+        const manager = new Manager (
+            answer.manager_name,
+            answer.manager_id,
+            answer.manager_email,
+            answer.manger_officeNumber
+        )
         createEmployee();
     })
 }
@@ -78,7 +87,12 @@ function addEngineer(){
                 type: 'input',
                 message: 'what is the ID of the engineer?',
                 name: 'employee_id',
-                validate: 
+                validate: (answer) => {
+                    if(answer !== ''){
+                        return true
+                    }
+                    return 'require at least 1 character'
+                }
             },
             {
                 type: 'input',
@@ -125,7 +139,9 @@ function addEngineer(){
                 }
             ])
             .then((answer) => {
-                console.log
+                const intern = new Intern (
+
+                )
             })
     }
     
