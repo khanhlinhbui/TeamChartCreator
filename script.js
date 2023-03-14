@@ -40,7 +40,7 @@ function createManager(){
             answer.manager_name,
             answer.manager_id,
             answer.manager_email,
-            answer.manger_officeNumber
+            answer.manager_officeNumber
         )
         list.push(managerObject)
         createEmployee();
@@ -95,7 +95,7 @@ function addEngineer(){
             {
                 type: 'input',
                 message: 'what is the ID of the engineer?',
-                name: 'employee_id',
+                name: 'engineer_id',
                 validate: (answer) => {
                     if(answer !== ''){
                         return true
@@ -111,7 +111,7 @@ function addEngineer(){
             {
                 type: 'input',
                 message: 'what is the github of the engineer?',
-                name:'enginner_github'
+                name:'engineer_github'
             }
         ])
         .then((answer) => {
