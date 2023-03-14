@@ -8,7 +8,7 @@ const Manager = require('./lib/Manager');
 const list = [];
 // Generate buildTeam functionß
 function buildTeam(){ 
-    console.log('12345')
+    console.log(list)
 }
 // const { listenerCount } = require('process');
 function createManager(){
@@ -122,6 +122,7 @@ function addEngineer(){
                 answer.engineer_github 
             )
             list.push(engineerObject)
+            createEmployee();
         })
     }
     function addIntern(){
@@ -156,6 +157,7 @@ function addEngineer(){
                     answer.intern_school
                 )
                 list.push(internObject)
+                createEmployee();
             })
     }
     
