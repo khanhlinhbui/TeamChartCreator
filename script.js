@@ -11,7 +11,6 @@ const list = [];
 function buildTeam(){ 
     console.log(generateTeam(list))
 }
-buildTeam(Template())
 // const { listenerCount } = require('process');
 function createManager(){
     inquirer
