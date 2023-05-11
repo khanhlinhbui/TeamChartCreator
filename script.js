@@ -10,6 +10,7 @@ const list = [];
 // Generate buildTeam functionß
 function buildTeam(){ 
     console.log(generateTeam(list))
+    newFile('index',generateTeam(list))
 }
 // const { listenerCount } = require('process');
 function createManager(){
@@ -45,6 +46,14 @@ function createManager(){
         )
         list.push(managerObject)
         createEmployee();
+        function newFile(title,template){ // 
+        fs.writeFile(`./${title.toLowerCase().split(' ').join('')}.md`,template,(err)=>{
+            if(err){
+                console.log(err)
+            }
+            console.log('Your README file has been created')
+        })
+    }
     })
 }
 createManager();
@@ -160,6 +169,14 @@ function addEngineer(){
                 list.push(internObject)
                 createEmployee();
             })
+    }
+    function newFile(title,template){ // 
+        fs.writeFile(`./${title.toLowerCase()}.html`,template,(err)=>{
+            if(err){
+                console.log(err)
+            }
+            console.log('Your HTML file has been created')
+        })
     }
    
     
